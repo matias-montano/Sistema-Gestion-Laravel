@@ -1,0 +1,13 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "prepare": "husky install",
+        "test": "echo \"Error: no test specified\" && exit 0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.7.1",
+        "@commitlint/config-conventional": "^19.7.1",
+        "husky": "^8.0.0"
+    }
+}
