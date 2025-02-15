@@ -3,8 +3,8 @@ version: '3.8'
 services:
   backend:
     build:
-      context: ./backend
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: Dockerfile.backend
     image: proyecto-gestion-backend
     container_name: backend
     ports:
@@ -17,9 +17,20 @@ services:
       - DB_USERNAME=your_username
       - DB_PASSWORD=your_password
     volumes:
-      - ./backend:/var/www/html
+      - .:/var/www/html
     depends_on:
       - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    image: proyecto-gestion-frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
 
   db:
     image: postgres:latest
