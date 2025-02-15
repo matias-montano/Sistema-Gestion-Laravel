@@ -49,4 +49,3 @@ Este documento describe los estándares y mejores prácticas que seguimos en nue
 - **PHPStan**: Utilizamos PHPStan para análisis estático del código.
 - **ESLint y Prettier**: Utilizamos ESLint y Prettier para asegurar la calidad del código JavaScript.
 - **Husky**: Utilizamos Husky para ejecutar hooks de Git y asegurar que las validaciones se ejecuten antes de los commits y pushes.
-
