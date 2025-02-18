@@ -21,17 +21,6 @@ services:
     depends_on:
       - db
 
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile.frontend
-    image: proyecto-gestion-frontend
-    container_name: frontend
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend:/app
-
   db:
     image: postgres:latest
     container_name: db
@@ -44,3 +33,4 @@ services:
 
 volumes:
   db_data:
+

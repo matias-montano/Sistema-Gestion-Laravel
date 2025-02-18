@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Employee;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +13,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // Insertar datos estáticos en la tabla employees
+        Employee::create([
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
+            'username' => 'admin',
+            'password' => Hash::make('password'),
+            'role' => 'admin',
+        ]);
+
+        Employee::create([
+            'name' => 'Vendor User 1',
+            'email' => 'vendor1@example.com',
+            'username' => 'vendor1',
+            'password' => Hash::make('password'),
+            'role' => 'vendor',
         ]);
     }
 }

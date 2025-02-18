@@ -1,0 +1,67 @@
+openapi: 3.0.0
+info:
+  title: 'Sistema Gestion Larabel'
+  version: '1.0'
+paths:
+  /employee/login:
+    get:
+      tags:
+        - Authentication
+      summary: 'Show employee login form'
+      operationId: 4a87df1a8900ed366f73007969fbc3b8
+      responses:
+        '200':
+          description: 'Login form view'
+    post:
+      tags:
+        - Authentication
+      summary: 'Authenticate employee'
+      operationId: 4c37e908b1723fb2b5d0ed4fae192f27
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                remember:
+                  type: boolean
+              type: object
+      responses:
+        '302':
+          description: 'Redirect to main page on success'
+          headers:
+            Location:
+              description: 'Redirect URL'
+              schema:
+                type: string
+        '422':
+          description: 'Validation errors'
+          content:
+            application/json:
+              schema:
+                properties:
+                  email: { type: array, items: { type: string } }
+                type: object
+  /employee/logout:
+    get:
+      tags:
+        - Authentication
+      summary: 'Logout employee'
+      operationId: e186c2f4611f993cf5a69e2eec8a0011
+      responses:
+        '302':
+          description: 'Redirect to home page'
+          headers:
+            Location:
+              description: /
+              schema:
+                type: string
+tags:
+  -
+    name: Authentication
+    description: Authentication
