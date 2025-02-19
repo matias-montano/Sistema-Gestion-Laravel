@@ -28,13 +28,10 @@
     </style>
 </head>
 <body>
-    <div class="container text-center">
-        <div class="title">Sistema</div>
-        <div class="title">Gestión</div>
-        <div class="title">Larabel</div>
-    </div>
+    <div id="app"></div>
     <div class="login-container text-center">
         <a href="{{ route('employee.login') }}" class="btn btn-primary mt-4">Ingresar al Sistema</a>
     </div>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </body>
 </html>
