@@ -2,20 +2,12 @@
 <html>
 <head>
     <title>Employee Management System</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .navbar .nav-link.text-white {
-            cursor: default;
-        }
-        .navbar .nav-link.text-white:hover {
-            text-decoration: none;
-        }
-    </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @yield('styles')
 </head>
-<body>
+<body class="bg-gray-900 text-white">
     @include('layouts.navbar')
-    <div class="container">
+    <div class="container mx-auto mt-8">
         @yield('content')
     </div>
 </body>

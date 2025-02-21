@@ -1,6 +1,6 @@
-import './bootstrap';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import ExampleComponent from './components/ExampleComponent';
-
-ReactDOM.render(<ExampleComponent />, document.getElementById('app'));
+document.addEventListener('DOMContentLoaded', function() {
+    const appElement = document.getElementById('app');
+    if (appElement) {
+        appElement.innerHTML = '<p>Hello, World!</p>';
+    }
+});

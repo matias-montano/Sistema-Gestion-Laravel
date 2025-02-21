@@ -12,7 +12,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+// Ruta protegida para la vista de prueba
+Route::middleware('auth:employee')->group(function () {
+    Route::get('/prueba', function () {
+        return view('pruebasHTML.pruebaHTML-1');
+    })->name('prueba');
+});
 
 // Route for employee login
 Route::prefix('employee')->group(function () {

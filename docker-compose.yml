@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   backend:
@@ -9,6 +8,7 @@ services:
     container_name: backend
     ports:
       - "8000:8000"
+      - "5173:5173"  # Puerto de desarrollo de Vite
     environment:
       - DB_CONNECTION=pgsql
       - DB_HOST=db
@@ -18,6 +18,7 @@ services:
       - DB_PASSWORD=your_password
     volumes:
       - .:/var/www/html
+      - backend-vendor:/var/www/html/vendor  # Volumen para preservar vendor
     depends_on:
       - db
 
@@ -31,18 +32,6 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
 
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile.frontend
-    image: proyecto-gestion-frontend
-    container_name: frontend
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend:/usr/src/app
-    depends_on:
-      - backend
-
 volumes:
   db_data:
+  backend-vendor:  # Volumen para el vendor de PHP
