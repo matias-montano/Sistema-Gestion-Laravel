@@ -28,7 +28,9 @@ RUN git config --global --add safe.directory /var/www/html
 # Instalar dependencias PHP y Node.js
 RUN composer install --no-dev --optimize-autoloader 
 
-RUN npm install && \
+# Instalar TailwindCSS, PostCSS y Autoprefixer y construir assets
+RUN npm install -D tailwindcss postcss autoprefixer && \
+    npx tailwindcss init -p && \
     npm run build
 
 EXPOSE 8000

@@ -1,20 +1,16 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
-
-/** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
     content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './storage/framework/views/*.php',
         './resources/**/*.blade.php',
         './resources/**/*.js',
         './resources/**/*.vue',
     ],
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-            },
-        },
+            boxShadow: {
+                'glow-blue': '0 0 30px -5px rgba(59, 130, 246, 0.3)',
+                'glow-teal': '0 0 30px -5px rgba(45, 212, 191, 0.3)'
+            }
+        }
     },
     plugins: [],
 };

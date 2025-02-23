@@ -14,4 +14,5 @@ Este proyecto es un sistema de gestión de inventario diseñado para demostrar h
 
 ## Licencia
 
-Este proyecto está bajo la Licencia MIT. Mira el archivo [LICENSE](./LICENSE) para más detalles.
+
+Este proyecto está licenciado bajo la licencia CC BY 4.0 . Mira el archivo [LICENSE](./LICENSE) para más detalles.

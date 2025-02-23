@@ -16,6 +16,18 @@
 @endsection
 
 <style>
+    /* Fondo y tipografía base */
+body {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+/* Contenedor principal */
+.container {
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
 .line-container {
     display: flex;
     align-items: center;

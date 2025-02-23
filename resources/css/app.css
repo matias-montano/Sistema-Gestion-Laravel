@@ -1,37 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
-@import 'custom.css';
-
+/* Importa las directivas base, componentes y utilidades de TailwindCSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Aplicar la fuente a todo el documento */
-* {
-    font-family: 'JetBrains Mono', Verdana, Geneva, Tahoma, sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
-/* estilo personal */
-
-/* Estilos personalizados */
-.login-container {
-    @apply flex flex-col items-center justify-center min-h-screen bg-gray-100;
-}
-
-.title {
-    @apply text-4xl font-bold text-gray-800;
-}
-
-.btn {
-    @apply inline-block px-6 py-3 rounded-lg font-semibold text-white transition duration-300;
-}
-
-.btn-primary {
-    @apply bg-blue-500 hover:bg-blue-700;
-}
-
-.navbar .nav-link.text-white {
-    cursor: default;
-}
-.navbar .nav-link.text-white:hover {
-    text-decoration: none;
+/* Aplica la fuente JetBrains Mono */
+body {
+    font-family: 'JetBrains Mono', monospace;
 }

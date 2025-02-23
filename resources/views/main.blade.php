@@ -2,20 +2,33 @@
 
 @section('content')
     <div class="container mt-5 text-center">
-        <div class="flex flex-row items-center justify-center mt-6 space-x-4">
-            <img src="{{ asset('images/thisPersonNoExist.jpg') }}" alt="Descripción de la imagen" class="circular-image mb-4">
-            <h1 class="text-4xl font-bold mb-6">Bienvenido, {{ Auth::guard('employee')->user()->name }}</h1>
+        <div class="inline-block bg-black p-4 rounded-lg " style="background-color:rgb(0, 0, 0); border-radius: 0.5rem;
+            border: 1px solid #104892;">
+            <h1 class="text-4xl font-semibold" style="color: #104892;">Bienvenido al Sistema de Gestión de Empleados</h1>
         </div>
-        
-        <div class="flex justify-center space-x-4">
-            <a href="{{ route('profile.show') }}" class="btn btn-primary">Mi Perfil</a>
-            @if(Auth::guard('employee')->user()->role == 'admin')
-                <a href="{{ route('employees.index') }}" class="btn btn-orange">Administrar Empleados</a>
-            @endif
-        </div>
-        <hr class="my-6 border-gray-300">
-        <div class="flex justify-center">
-            <a href="{{ route('prueba') }}" class="btn btn-info">Prueba HTML 1</a>
+        <hr class="border-t border-white my-6 shadow-sm" style="border: 0;
+            height: 3px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff, rgba(255, 255, 255, 0));
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            <!-- Tarjeta de ejemplo -->
+            <div class="custom-card">
+                <div class="reflection"></div>
+                <h2 class="text-2xl font-bold" style="color: #104892;">Título de la Tarjeta</h2>
+                <p class="mt-2" style="color: #104892;">Este es un texto de ejemplo para la tarjeta.</p>
+            </div>
+            <!-- Tarjeta con ruta a employees.index -->
+            <a href="{{ route('employees.index') }}" class="custom-card" style="text-decoration: none;">
+                <div class="reflection"></div>
+                <h2 class="text-2xl font-bold" style="color: #104892;">Gestión de Empleados</h2>
+                <p class="mt-2" style="color: #104892;">Accede a la gestión de empleados.</p>
+            </a>
+            <!-- Tarjeta con ruta a prueba -->
+            <a href="{{ route('prueba') }}" class="custom-card" style="text-decoration: none;">
+                <div class="reflection"></div>
+                <h2 class="text-2xl font-bold" style="color: #104892;">Prueba</h2>
+                <p class="mt-2" style="color: #104892;">Accede a la página de prueba.</p>
+            </a>
         </div>
     </div>
 @endsection
@@ -27,45 +40,66 @@
             color: #fff;
         }
         .container {
-            background-color: #333;
+            background-color: #44565e;
             padding: 20px;
             border-radius: 10px;
             margin-top: 50px;
         }
-        .btn {
-            @apply inline-block px-6 py-3 rounded-lg font-semibold text-white transition duration-300;
+        .custom-card {
+            position: relative;
+            background-color:rgb(0, 0, 0); /* Fondo celeste */
+            padding: 1.5rem; /* Padding */
+            border-radius: 0.5rem; /* Bordes redondeados */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+            border: 1px solid #104892; /* Borde verde */
+            transition: transform 0.3s ease-in-out; /* Transición */
+            overflow: hidden; /* Ocultar el pseudo-elemento fuera de los bordes */
+            color: inherit; /* Mantener el color del texto */
         }
-        .btn-primary {
-            @apply bg-blue-500;
+        
+        .custom-card:hover {
+            transform: scale(1.05); /* Escala */
+            backdrop-filter: blur(10px); /* Desenfoque */
+            box-shadow: 0 0 15px #104892; /* Sombra */
         }
-        .btn-primary:hover {
-            @apply bg-blue-700;
+        .reflection {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: 1; /* Asegúrate de que la reflexión esté detrás de los enlaces */
         }
-        .btn-orange {
-            @apply bg-orange-500;
+        .reflection::after {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 100%;
+            position: absolute;
+            top: -180px;
+            left: 0;
+            background-color: #FFF;
+            opacity: 0;
+            transform: rotate(45deg);
+            /* Sin animación de inicio */
         }
-        .btn-orange:hover {
-            @apply bg-orange-700;
+        /* Activa la animación una sola vez apenas pongas el cursor */
+        .reflection:hover::after {
+            animation: reflect 2s ease-in-out 1;
+            -webkit-animation: reflect 2s ease-in-out 1;
         }
-        .btn-info {
-            @apply bg-teal-500;
+        @keyframes reflect {
+            0% { transform: scale(0) rotate(45deg); opacity: 0; }
+            80% { transform: scale(0) rotate(45deg); opacity: 0.5; }
+            81% { transform: scale(4) rotate(45deg); opacity: 1; }
+            100% { transform: scale(50) rotate(45deg); opacity: 0; }
         }
-        .btn-info:hover {
-            @apply bg-teal-700;
-        }
-        .circular-image {
-            width: 150px; /* Adjust the size as needed */
-            height: 150px; /* Adjust the size as needed */
-            border-radius: 50%;
-            object-fit: cover; /* Ensures the image covers the entire area */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for a nice effect */
-        }
-        .flex-row {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            gap: 10px; /* Adjust the gap as needed */
+        @-webkit-keyframes reflect {
+            0% { transform: scale(0) rotate(45deg); opacity: 0; }
+            80% { transform: scale(0) rotate(45deg); opacity: 0.5; }
+            81% { transform: scale(4) rotate(45deg); opacity: 1; }
+            100% { transform: scale(50) rotate(45deg); opacity: 0; }
         }
     </style>
 @endsection
