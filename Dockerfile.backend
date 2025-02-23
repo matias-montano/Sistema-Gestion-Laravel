@@ -1,0 +1,38 @@
+FROM php:8.2-fpm
+
+# Instalar dependencias del sistema + Node.js
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    libonig-dev \
+    zip \
+    unzip \
+    git \
+    curl \
+    && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs
+
+# Instalar extensiones PHP
+RUN docker-php-ext-install pdo_pgsql mbstring
+
+# Instalar Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+WORKDIR /var/www/html
+
+# Copiar archivos necesarios
+COPY . .
+
+# Configurar Safe
+RUN git config --global --add safe.directory /var/www/html
+
+# Instalar dependencias PHP y Node.js
+RUN composer install --no-dev --optimize-autoloader 
+
+# Instalar TailwindCSS, PostCSS y Autoprefixer y construir assets
+RUN npm install -D tailwindcss postcss autoprefixer && \
+    npx tailwindcss init -p && \
+    npm run build
+
+EXPOSE 8000
+
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
