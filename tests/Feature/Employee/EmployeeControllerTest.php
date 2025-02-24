@@ -38,7 +38,7 @@ class EmployeeControllerTest extends TestCase
         $response = $this->get(route('employees.create'));
 
         $response->assertStatus(200);
-        $response->assertSee('Create Employee');
+        $response->assertSee('Crear Empleado'); // Actualizado para buscar el texto en español
     }
 
     public function test_store_creates_employee()
@@ -77,7 +77,7 @@ class EmployeeControllerTest extends TestCase
         $response = $this->get(route('employees.edit', $employee->id));
 
         $response->assertStatus(200);
-        $response->assertSee('Edit Employee');
+        $response->assertSee('Editar Empleado'); // Actualizado para buscar el texto en español
     }
 
     public function test_update_updates_employee()

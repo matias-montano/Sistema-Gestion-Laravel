@@ -33,6 +33,10 @@ RUN npm install -D tailwindcss postcss autoprefixer && \
     npx tailwindcss init -p && \
     npm run build
 
+# Instalar PHPUnit globalmente
+RUN composer global require phpunit/phpunit --prefer-dist && \
+    ln -s /root/.composer/vendor/bin/phpunit /usr/local/bin/phpunit
+
 EXPOSE 8000
 
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]

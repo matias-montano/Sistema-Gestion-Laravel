@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="inline-block bg-black p-4 rounded-lg" style="background-color:rgb(0, 0, 0); border-radius: 0.5rem; border: 1px solid #104892; text-align: center;">
-    <h1 class="text-4xl font-semibold" style="color: #104892;">Mi Perfil</h1>
-</div>
-
 <!-- Espacio transparente -->
 <div style="height: 20px;"></div>
 
@@ -24,16 +20,6 @@
 
 @section('styles')
     <style>
-        body {
-            background-color: #000;
-            color: #fff;
-        }
-        .container {
-            background-color: #44565e;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 50px;
-        }
         .profile-card {
             position: relative; /* Necesario para el posicionamiento absoluto de .card-shine */
             background-color: rgb(0, 0, 0);
