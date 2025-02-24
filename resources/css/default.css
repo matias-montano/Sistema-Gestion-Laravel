@@ -1,0 +1,149 @@
+body {
+    background: linear-gradient(to right, #1f2836, #3b4a6b, #6b8ba4);
+}
+.container {
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.container-2 {
+    background: linear-gradient(to right,rgb(4, 27, 21),rgb(3, 37, 28),rgb(25, 54, 134)); /* Fondo */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+/* Estilo para etiquetas */
+.style-labels {
+    background:#1B4F72 ; 
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    padding: 1rem;
+}
+.style-labels h1 {
+    color: #5DADE2;
+}
+
+/* Estilo para la línea horizontal */
+.custom-hr {
+    border: 0;
+    height: 3px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff, rgba(255, 255, 255, 0));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* estilo para tablas */
+.table-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Estilos de la tabla */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #2c2c2c;
+    border: 1px solid #104892;
+}
+
+/* Estilos de las celdas de la tabla */
+th,
+td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid rgb(58, 120, 202);
+    border-right: 1px solid rgb(58, 120, 202);
+    color: #ffffff; /* Cambia el color del texto a blanco */
+}
+
+th:last-child,
+td:last-child {
+    border-right: none;
+}
+
+/* Estilos del encabezado */
+th {
+    background-color: #104892;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+tr {
+    border-bottom: 1px solid #007acc;
+}
+
+/* Efecto hover en las filas */
+tr:hover {
+    background-color: #3a3a3a;
+}
+
+/* Bordes curvos */
+table {
+    border: 1px solid #007acc;
+}
+
+/* Botones en las celdas */
+td .btn {
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+td .btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+td .btn-info:hover {
+    background-color: #0f6674;
+    border-color: #0d5a66;
+}
+
+td .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+td .btn-warning:hover {
+    background-color: #d48800;
+    border-color: #c37a00;
+}
+
+td .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+td .btn-danger:hover {
+    background-color: #b52a37;
+    border-color: #a02630;
+}
+
+
+/* Boton generico */
+.btn-info {
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.btn-info:hover {
+    background-color: #0f6674;
+    border-color: #0d5a66;
+}
+
+/* campo de Inputs */
+.form-control {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    border: 1px solid #104892;
+}

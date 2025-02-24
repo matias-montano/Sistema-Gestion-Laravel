@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-5">
-        <h1>Create Employee</h1>
+<div class="container-2 mt-5 text-center">
+        <div class="style-labels">
+            <h1 class="text-4xl font-semibold">Crear Empleado</h1>
+        </div>
+        <hr class="custom-hr border-t border-white my-6 shadow-sm">
         @if($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -14,58 +17,52 @@
         @endif
         <form action="{{ route('employees.store') }}" method="POST">
             @csrf
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="password_confirmation">Confirm Password:</label>
-                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="role">Role:</label>
-                <select id="role" name="role" class="form-control" required>
-                    <option value="admin">Admin</option>
-                    <option value="vendor">Vendor</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Create</button>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td><label for="name">Name:</label></td>
+                        <td>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email:</label></td>
+                        <td>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="username">Username:</label></td>
+                        <td>
+                            <input type="text" id="username" name="username" class="form-control" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password:</label></td>
+                        <td>
+                            <input type="password" id="password" name="password" class="form-control" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="password_confirmation">Confirm Password:</label></td>
+                        <td>
+                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="role">Role:</label></td>
+                        <td>
+                            <select id="role" name="role" class="form-control" required>
+                                <option value="admin">Admin</option>
+                                <option value="vendor">Vendor</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-center mt-3">
+            <a href="{{ route('employees.index') }}" class="btn btn-info">crear empleado</a>
+        </div>
         </form>
-    </div>
-@endsection
-
-@section('styles')
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-        }
-        .container {
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 50px;
-        }
-        .form-control {
-            background-color: #444;
-            color: #fff;
-            border: 1px solid #555;
-        }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-    </style>
+</div>
 @endsection
